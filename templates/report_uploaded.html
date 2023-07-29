@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content_main %}
+
+	<h3> Thank you for your support </h3>
+
+	{% if bacts %}
+		<h2> You are infected with </h2>
+		<span> {{ bacts[0] }} </span>
+		{% for bact in bacts[1:] %}
+			<span> {{ ', ' + bact }} </span>
+		{% endfor %}
+	{% endif %}
+
+	{% if res_data %}
+		<h2> Resistance for your infection </h2><br>
+			<table style="text-align:center; margin: auto;"><tr><th>Antimicrobial Compound</th><th>Senstivity</th></tr>
+			{% for key in res_data.keys() %}
+				{% if res_data[key] %}
+					<tr><td><a href="/medicine/search?q={{key}}">{{key | upper}}</a></td><td>{{values[res_data[key]]}}</td></tr>
+				{% endif %}
+			{% endfor %}
+			</table>
+	{% endif %}
+
+{% endblock %}

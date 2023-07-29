@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content_main %}
+
+	<h3> Upload Image </h3>
+	<br></br>
+
+	<form id="uploadimage" enctype="multipart/form-data" method="post" action="{{url}}">
+<div>
+		<label style="margin-left:30px;width:20%;background: #2f89fc;border:1px;border-radius:4px;color:white;height:40px;padding-top:7px">Upload
+   		<input name="imagefile" type="file" style="display:none;"/>
+		</label>
+		<label style="margin-left:20%;width:20%;background: #2f89fc;border:1px;border-radius:4px;color:white;height:40px;padding-top:7px">Submit
+   		<input type="submit"   value="Submit" id="Submit" style="display:none" />
+		</label>
+</div>
+	
+	</form>
+
+	<br>
+
+{% endblock %}

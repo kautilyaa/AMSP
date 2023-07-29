@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> AMSP </title>
+	<link rel="stylesheet" type="text/css" href="/Resources/main.css" />
+</head>
+<body>
+	<h1>{{ med['prod_name'] }}</h1>
+	<h2> {{ med['type'] }} </h2>
+	
+	<h3> Diseases </h3>
+	
+	<ul>
+		{% for item in med['diseases'] %}
+		<li> {{ item }} </li>
+		{% endfor %}
+	</ul>
+
+	<h3> Compunds </h3>
+	<ul>
+		{% for item in med['compounds'] %}
+		<li> {{ item[0] }} >> {{ item[1] }} </li>
+		{% endfor %}
+	</ul>
+
+	<h3> Safety Advice </h3>
+	<ul>
+		{% for item in med['safety_advice'] %}
+		<li> {{ item }} </li>
+		{% endfor %}
+	</ul>
+
+	<h3> Side Effects </h3>
+	<ul>
+		{% for item in med['side_effects'] %}
+		<li> {{ item }} </li>
+		{% endfor %}
+	</ul>
+	
+</body>
+</html>

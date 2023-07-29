@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content_main %}
+
+
+
+	<div style="text-align: center;">
+		<h1> RESULTS </h1>
+		<br></br>
+	<div>
+		{% for result in results %}
+			<div style="font-size:20px; line-height:300%;">
+				<a class="custom_links" href="/medicine/{{result['index']}}" > {{ result['prod_name'] | title }} </a> 
+			</div>
+		{% endfor %}
+		{% if not results %}
+			<div> No results found </div>
+		{% endif %}
+	</div>
+	<br></br>
+	</div>
+{% endblock %}

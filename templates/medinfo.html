@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content_main %}
+
+
+<div style="text-align:center;color:black" >
+        <div >
+          <h1>{{ med['prod_name'] | title }}</h1>
+          <br></br>
+          <h2>{{ med['type'] | upper}}</h2>
+          <br></br>
+          <h3>Diseases</h3>
+          <ul style="padding-left:0;list-style-position:inside">
+				{% for item in med['diseases'] %}
+				<li> {{ item | title}} </li>
+				{% endfor %}
+          </ul> 
+          <br></br>
+
+	{% if med['compounds'] %}
+          <h3>Compounds</h3>
+          <ul style="padding-left:0;list-style-position:inside">
+				{% for item in med['compounds'] %}
+				<li> {{ item[0] | upper }} {% if item[1] %} - {{ item[1] }} {% endif %} </li>
+				{% endfor %}
+          </ul> 
+          <br></br>
+	{% endif %}
+	{% if med['safety_advice'] %}
+          <h3>Safety Advice</h3>
+          <ul style="padding-left:0;list-style-position:inside">
+				{% for item in med['safety_advice'] %}
+				{% if item %} <li> {{ item | title }} </li> {% endif %}
+				{% endfor %}
+          </ul> 
+          <br></br>
+	{% endif %}
+	{% if med['side_effects'] %}
+          <h3>Side Effects</h3>
+          <ul style="padding-left:0;list-style-position:inside">
+				{% for item in med['side_effects'] %}
+				{% if item %} <li> {{ item | title}} </li> {% endif %}
+				{% endfor %}
+          </ul> 
+	{% endif %}
+        </div>
+
+</div>
+{% endblock %}
